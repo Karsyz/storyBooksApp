@@ -15,8 +15,10 @@ dotenv.config({ path:'./config/config.env' })
 // Passport Config
 require('./config/passport')(passport)
 
+// Connect to database
 connectDB()
 
+// Declare Express as 'app'
 const app = express()
 
 //Body Parcer
@@ -88,9 +90,10 @@ app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
 app.use('/stories', require('./routes/stories'))
 
-
+// Declare Port
 const PORT = process.env.PORT || 3000
 
+// Listeners
 app.listen(
     PORT,
     console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
